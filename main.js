@@ -15,7 +15,7 @@ document.querySelector(`footer`).innerHTML = `${gamename} Game Created by Abdelr
   })
 // setting Game option
 
-let numberOfTries = 6;
+let numberOfTries = 5;
 let currentTryies = 1;
 let numberOfLetters  = 0;
 let messageBox = document.querySelector(`.message`);
