@@ -183,12 +183,15 @@ function GenerateInputs(word){
         if (emptyInputs.length > 0) {
             const randomIndex = Math.floor(Math.random() * emptyInputs.length);
             const randomInput = emptyInputs[randomIndex];
-            const indexToFill = Array.from(allinputs).indexOf(randomInput);
-            if (indexToFill !== -1) randomInput.value = word[indexToFill].toUpperCase();
+            // const indexToFill = Array.from(allinputs).indexOf(randomInput);
+            // randomInput.value = word[indexToFill];
+            randomInput.value = word.charAt(randomIndex);
 
-            // console.log(randomIndex);
-            // console.log(emptyInputs);
-            // console.log(randomInput);
+
+            console.log(randomIndex);
+            console.log(emptyInputs);
+            console.log(randomInput);
+            console.log(randomInput.value);
         }
 
     }
