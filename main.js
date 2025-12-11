@@ -5,7 +5,8 @@ document.querySelector(`h1`) .innerHTML= gamename
 document.querySelector(`footer`).innerHTML = `${gamename} Game Created by Abdelrahman Hany`;
 
 // Fetching API
-    fetch("https://random-word-api.herokuapp.com/word?number=1")
+    // fetch("https://random-word-api.herokuapp.com/word?number=1")
+    fetch("https://random-word-api.vercel.app/api?words=1")
   .then(res => res.json())
   .then(data => {
       let w = data[0];
