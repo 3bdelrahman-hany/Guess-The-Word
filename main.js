@@ -304,12 +304,6 @@ function GenerateInputs(word){
             const indexToFill = Array.from(allinputs).indexOf(randomInput);
             randomInput.value = word[indexToFill];
             // randomInput.value = word.charAt(randomIndex);
-
-
-            console.log(randomIndex);
-            console.log(emptyInputs);
-            console.log(randomInput);
-            console.log(randomInput.value);
         }
 
     }
