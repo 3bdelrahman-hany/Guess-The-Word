@@ -5,14 +5,131 @@ document.querySelector(`h1`) .innerHTML= gamename
 document.querySelector(`footer`).innerHTML = `${gamename} Game Created by Abdelrahman Hany`;
 
 // Fetching API
-    fetch("https://random-word-api.herokuapp.com/word?number=1")
-  .then(res => res.json())
-  .then(data => {
-      let w = data[0];
-      console.log(w);
-      let word = w.toUpperCase();
-    GenerateInputs(word);
-  })
+let random=['Animals','Sports','Programming Languages','Games',"Wordle","Countries","Capitals of Countries","Birds"];
+
+let randValue=random[Math.floor(Math.random()*8)];
+console.log(randValue);
+
+switch(randValue){
+  case 'Animals' :
+    async function getAnimals() {
+      try {
+        let response = (await fetch("https://random-words-api.kushcreates.com/api?language=en&category=animals"));
+        let theword = await response.json()
+        let value = theword[Math.floor(Math.random()*140)].word
+        GenerateInputs(value)
+      } catch (error) {
+        console.log("Error fetching data:", error);
+      }
+    }
+
+    getAnimals();
+    break;
+
+  case 'Sports':
+    async function getSports() {
+      try {
+        let response = (await fetch("https://random-words-api.kushcreates.com/api?language=en&category=sports"));
+        let theword = await response.json()
+        let value = theword[Math.floor(Math.random()*78)].word
+        
+        GenerateInputs(value)
+      } catch (error) {
+        console.log("Error fetching data:", error);
+      }
+    }
+
+    getSports();
+
+    break;
+  case "Games":
+    async function getGames() {
+      try {
+        let response= (await fetch("https://random-words-api.kushcreates.com/api?language=en&category=games"))
+        let theword=await response.json()
+        let value=theword[Math.floor(Math.random()*88)].word;
+        
+        GenerateInputs(value)
+      } catch (error) {
+          console.log("Error fetching data:", error);
+      }
+    }
+
+    getGames();
+    break;
+
+  case "Capitals of Countries":
+    async function getCapitalsOfCountries() {
+      try {
+        let response = await fetch("https://random-words-api.kushcreates.com/api?language=en&category=capitals_of_countries");
+        let theword= await response.json()
+        let value=theword[Math.floor(Math.random()*201)].word
+        GenerateInputs(value)
+      } catch (error) {
+          console.log("Error fetching data:", error);
+      }
+    }
+
+    getCapitalsOfCountries();
+    break;
+  case "Programming Languages":
+      async function getPL(){
+        try {
+          let response = await fetch("https://random-words-api.kushcreates.com/api?language=en&category=programming_languages")
+          let Words =  await response.json();
+          let value = Words[Math.floor(Math.random()*57)].word;
+          GenerateInputs(value);
+        } catch (error) {
+            console.log("Error fetching data:", error);
+        }
+      }
+      getPL();
+      break;
+
+  case "Countries":
+    async function getCountry(){
+        try {
+          let response = await fetch("https://random-words-api.kushcreates.com/api?language=en&category=countries");
+          let Words =  await response.json();
+          let value = Words[Math.floor(Math.random()*200)].word;
+          GenerateInputs(value);
+        } catch (error) {
+            console.log("Error fetching data:", error);
+        }
+      }
+      getCountry();
+      break;
+  
+  case"Birds":
+      async function getBird(){
+        try {
+          let response = await fetch("https://random-words-api.kushcreates.com/api?language=en&category=birds");
+          let Words =  await response.json();
+          let value = Words[Math.floor(Math.random()*60)].word;
+          GenerateInputs(value);
+        } catch (error) {
+            console.log("Error fetching data:", error);
+        }
+      }
+      getBird();
+      break;
+
+  case"Wordle":
+      async function getWordle(){
+        try {
+          let response = await fetch("https://random-words-api.kushcreates.com/api?language=en&category=wordle");
+          let Words =  await response.json();
+          let value = Words[Math.floor(Math.random()*14855)].word;
+          GenerateInputs(value);
+        } catch (error) {
+            console.log("Error fetching data:", error);
+        }
+      }
+      getWordle();
+      break;
+
+}
+
 // setting Game option
 
 let numberOfTries = 5;
